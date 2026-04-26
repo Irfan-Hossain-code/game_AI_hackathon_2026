@@ -1,0 +1,20 @@
+# Environments
+.env
+.venv/
+node_modules/
+
+# Python Caches
+__pycache__/
+*.pyc
+*.pyo
+
+# Deep Learning / YOLO
+yolov8n.pt
+*.pt
+
+# Local Databases
+knowledge.db
+qdrant_storage/
+
+# System
+.DS_Store

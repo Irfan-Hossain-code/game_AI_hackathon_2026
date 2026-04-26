@@ -1,0 +1,23 @@
+{
+  "name": "clash-royale-ingestion",
+  "version": "1.0.0",
+  "description": "Knowledge ingestion pipeline for the Clash Royale AI coaching engine",
+  "type": "module",
+  "main": "run_all.js",
+  "scripts": {
+    "ingest": "node run_all.js",
+    "ingest:force": "node run_all.js --force",
+    "status": "node run_all.js --status",
+    "youtube": "node scrapers/youtube.js",
+    "reddit": "node scrapers/reddit.js",
+    "patch": "node scrapers/patch_notes.js",
+    "deckshop": "node scrapers/deckshop.js"
+  },
+  "dependencies": {
+    "youtube-transcript": "^1.2.1",
+    "cheerio": "^1.0.0",
+    "better-sqlite3": "^9.4.3",
+    "dotenv": "^16.4.5",
+    "node-fetch": "^3.3.2"
+  }
+}
