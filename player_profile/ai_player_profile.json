@@ -1,40 +1,38 @@
 {
-  "playstyle_summary": "Irfan exhibits a highly aggressive and proactive playstyle, consistently applying forward pressure and aiming for three-crown victories. This is supported by a perfect win rate and three-crown rate, though a high elixir leak suggests potential over-commitment.",
-  "player_archetype": "Aggressive Mid-range / Beatdown",
+  "playstyle_summary": "Irfan is a new player in Goblin Stadium with a perfect win rate, indicating early success. His playstyle is early proactive and aggressive, heavily favoring the left lane. He utilizes a mid-cost deck with a mix of tank, support, and spells.",
+  "player_archetype": "Aggro Mid-range / Beatdown",
   "strengths": [
-    "High overall and recent win rates (1.0).",
-    "Consistent three-crown victories (1.0 rate).",
-    "Proactive and forward-pressing offense.",
-    "Effective use of spells for offensive pressure."
+    "High overall and recent win rates (1.0)",
+    "High three-crown rate (1.0)",
+    "Proactive and aggressive pressure",
+    "Effective offensive spell usage (Fireball on tower)"
   ],
   "weaknesses": [
-    "Significant elixir leakage (3.5 average).",
-    "Potential for over-commitment due to aggressive nature.",
-    "Apparent lane dependency (heavily favored left lane in latest match).",
-    "Uncertainty regarding defensive proficiency given offensive focus."
+    "High average elixir leaked (2.62)",
+    "Heavy reliance on the left lane (13 vs 6 plays)",
+    "Potential for over-aggression",
+    "Uncertainty in video extraction confidence"
   ],
   "habits": [
-    "Initiates matches with early proactive plays.",
-    "Favors applying pressure in the opponent's half.",
-    "Tends to focus offensive pushes down a single lane.",
-    "Frequently leaks elixir."
+    "Initiates with early proactive plays (e.g., Knight at 0.0s)",
+    "Applies aggressive pressure, often in the enemy's half",
+    "Favors the left lane for card deployment",
+    "Uses spells offensively"
   ],
   "latest_match_observations": [
-    "Opened the match immediately with Knight at 0.0s.",
-    "Majority of plays (10/19) were made in the enemy's half.",
-    "Heavily favored the left lane for card placements (13 plays).",
-    "Used Fireball offensively on the opponent's tower."
+    "Opened with Knight on left lane in own half",
+    "Used Arrows on right lane in own half early in the match",
+    "Aggressively used Fireball on opponent's left tower",
+    "Deployed Musketeer on both lanes in own half for defense/support"
   ],
   "coaching_focus": [
-    "Minimize average elixir leaked per game.",
-    "Develop dual-lane pressure strategies.",
-    "Improve defensive card placements and timing.",
-    "Evaluate optimal spell usage for value trades."
+    "Improve elixir management to reduce leakage",
+    "Encourage more balanced lane pressure",
+    "Review defensive vs. offensive spell timing",
+    "Explore diverse opening plays"
   ],
   "trust_notes": [
-    "API stats (win rates, trophies) are highly reliable.",
-    "Gameplay observations are based on a single match, limiting generalizability.",
-    "Video extraction confidence for individual events appears low (0.0), suggesting potential noise in specific event details.",
-    "Player is in Goblin Stadium, indicating early game experience."
+    "All gameplay event confidence scores are 0.0, indicating potential uncertainty in the video extraction.",
+    "API stats are clear, but gameplay observations should be viewed with caution due to low confidence."
   ]
 }

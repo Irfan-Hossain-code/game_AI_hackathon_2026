@@ -2,6 +2,7 @@ import json
 import os
 from google import genai
 from google.genai import types
+from profile_service import build_player_profile
 
 
 client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
@@ -34,7 +35,13 @@ def compact_gameplay_features(gameplay_features):
     }
 
 
-def build_ai_profile(api_features, gameplay_features):
+def build_ai_profile(api_features=None, gameplay_features=None, player_tag="#VR08VQLL2"):
+        # If API features not provided, fetch them
+    if api_features is None:
+        print("[AI PROFILE] Fetching API features...")
+        profile = build_player_profile(player_tag)
+        api_features = profile.get("features", {})
+        
     compact_api = compact_api_features(api_features)
     compact_gameplay = compact_gameplay_features(gameplay_features)
 
