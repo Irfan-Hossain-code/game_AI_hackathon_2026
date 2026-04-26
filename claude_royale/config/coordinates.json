@@ -1,0 +1,22 @@
+{
+  "canvas": {
+    "width": 1080,
+    "height": 1920
+  },
+  "hand_slots": {
+    "0": [294, 1766],
+    "1": [442, 1766],
+    "2": [605, 1766],
+    "3": [756, 1766]
+  },
+  "anchors": {
+    "left_bridge": [390, 990],
+    "right_bridge": [690, 990],
+    "left_back_defense": [300, 1290],
+    "right_back_defense": [780, 1290],
+    "center_defense": [540, 1240],
+    "battle_button": [540, 1690],
+    "ok_button": [540, 1570],
+    "play_again_button": [540, 1660]
+  }
+}

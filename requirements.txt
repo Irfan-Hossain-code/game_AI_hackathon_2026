@@ -27,3 +27,12 @@ lxml>=5.0.0
 # API layer (later)
 fastapi>=0.111.0
 uvicorn>=0.29.0
+
+# Gameplay / emulator / voice stack
+numpy
+mss
+opencv-python
+sounddevice
+soundfile
+faster-whisper
+kokoro>=0.9.4

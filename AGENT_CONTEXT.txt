@@ -1,0 +1,135 @@
+PROJECT: Clash Royale AI Coach / Teammate (Hackathon)
+
+WHY THIS FILE EXISTS
+- Agents may restart and lose chat context.
+- This file is the canonical bootstrap context for future coding agents.
+- Read this first before making changes.
+
+PRIMARY GOAL
+- Build a low-latency local agent that can play Clash Royale with/against a human.
+- Must observe MuMu emulator, decide actions, control game taps via ADB, and speak tactical reasoning.
+- Must support voice interaction from player (STT commands/questions).
+
+CURRENT PRODUCT INTENT
+- MVP for hackathon reliability and speed over perfect game AI.
+- Fast model handles battle decision + narration.
+- Optional vision-capable model can be used for screenshot nav fallback.
+- Existing Kokoro implementation is reused (do not replace unless requested).
+
+REFERENCE INSPIRATION
+- https://github.com/houseworthe/claude-royale
+- We borrow the tight agent loop idea and practical autonomy approach.
+- We do NOT depend on that repo's scripts/resources.
+
+ARCHITECTURE OVERVIEW
+1) main.py (orchestrator)
+   - Owns runtime loop.
+   - Runs continuous commander mode (navigate + battle).
+   - Polls game state from vision.py.
+   - Requests action from brain.py.
+   - Executes card placements through vision.py.
+   - Queues speech output to Kokoro.
+   - Runs STT listener thread and merges user commands into context.
+
+2) vision.py (capture + control)
+   - Uses mss for screen capture.
+   - Uses ADB taps for interaction; no host mouse control.
+   - Uses dynamic canvas bounds; current default is 1080x1920.
+   - Loads hand slot coordinates from mumu_coords.json if available.
+   - Loads menu anchors from mumu_coords.json if available.
+   - Tracks simple enemy memory signals (seen cards, rough elixir, log availability).
+
+3) navigator.py (startup commander)
+   - Launches Clash Royale package.
+   - Uses screen classifier + state machine for menu actions.
+   - Optional LLM-on-screenshot fallback for unknown states.
+   - Runs as one-step commander each loop; returns control to battle when in-match.
+
+4) screen_classifier.py (fast nav perception)
+   - Classifies frames into menu/popup/in_battle/unknown.
+   - Keeps nav low-latency and deterministic.
+
+5) brain.py (LLM policy)
+   - Calls local Ollama HTTP endpoint /api/generate.
+   - Outputs strict JSON action plan schema.
+   - Generates short spoken line with what+where+why.
+   - Has graceful fallback on request timeout/failure.
+
+6) kokoro_speech.py (TTS)
+   - Existing Kokoro path retained.
+   - F5 dependency removed from active runtime path.
+
+7) stt_utils.py (STT helper)
+   - Contains push-to-talk transcription utilities extracted from live_agent workflow.
+   - main.py imports STT from here, not from live_agent.py.
+
+CURRENT DEFAULTS / ASSUMPTIONS
+- MuMu display: 1080x1920.
+- FAST_MODEL: gemma2:2b (override with env).
+- VISION_MODEL: gemma4:e4b by default (override with env if needed).
+- NAV_TIMEOUT_S: 8 seconds by default.
+- OLLAMA_TIMEOUT_S: 8 seconds (override with env).
+- DRY_RUN=1 for safe no-tap test.
+- AUTO_NAVIGATE=1 by default.
+- USE_LLM_NAV=1 by default.
+- Push-to-talk key: space.
+
+RUNTIME FLOW (SINGLE TICK)
+1. Capture frame.
+2. Extract lightweight signals.
+3. Update enemy memory estimate.
+4. Ask LLM for action plan.
+5. If should_play:
+   - tap card slot
+   - tap target position
+6. Ask LLM for short coaching narration.
+7. Speak via Kokoro queue.
+8. Merge latest STT command for subsequent ticks.
+
+SAFETY / STABILITY GUARDS
+- Tap rate limit in vision controller.
+- DRY_RUN mode to avoid real taps.
+- LLM errors do not crash loop; brain falls back to no-op behavior.
+- Voice queue is non-blocking and can drop stale lines.
+
+SETUP CHECKLIST
+1. pip install -r requirements.txt
+2. brew install espeak-ng
+3. ollama serve
+4. ollama list
+5. adb devices
+6. python3 calibrate_mumu.py --width 1080 --height 1920
+
+TEST COMMANDS
+- Dry run:
+  DRY_RUN=1 FAST_MODEL=gemma2:2b OLLAMA_TIMEOUT_S=8 python3 main.py
+
+- Live:
+  FAST_MODEL=gemma2:2b OLLAMA_TIMEOUT_S=8 python3 main.py
+
+KNOWN REAL-WORLD BLOCKERS
+- adb may be missing from PATH on some shells.
+- If capture fails, check screen recording permissions for terminal/IDE.
+- If taps are off, regenerate mumu_coords.json.
+- If model calls timeout, increase OLLAMA_TIMEOUT_S.
+
+FILES THAT MATTER MOST
+- main.py
+- vision.py
+- brain.py
+- kokoro_speech.py
+- stt_utils.py
+- calibrate_mumu.py
+- mumu_coords.json (generated at runtime by calibration)
+
+CODEBASE HISTORY NOTES (IMPORTANT)
+- Earlier code had F5/TTS multi-mode features in live_agent.py.
+- Current gameplay runtime should stay minimal and Kokoro-first.
+- Avoid reintroducing large legacy dependencies into main loop unless requested.
+
+NEXT IMPROVEMENTS (IF ASKED)
+- Replace heuristic vision with object detection/classification model.
+- Improve deck-aware tactical logic and confidence gating.
+- Add richer enemy card cycle memory.
+- Add startup preflight checks for adb/ollama/capture permissions.
+- Persist match statistics and outcomes per game.
