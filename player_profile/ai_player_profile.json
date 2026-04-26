@@ -1,0 +1,40 @@
+{
+  "playstyle_summary": "Irfan exhibits a highly aggressive and proactive playstyle, consistently applying forward pressure and aiming for three-crown victories. This is supported by a perfect win rate and three-crown rate, though a high elixir leak suggests potential over-commitment.",
+  "player_archetype": "Aggressive Mid-range / Beatdown",
+  "strengths": [
+    "High overall and recent win rates (1.0).",
+    "Consistent three-crown victories (1.0 rate).",
+    "Proactive and forward-pressing offense.",
+    "Effective use of spells for offensive pressure."
+  ],
+  "weaknesses": [
+    "Significant elixir leakage (3.5 average).",
+    "Potential for over-commitment due to aggressive nature.",
+    "Apparent lane dependency (heavily favored left lane in latest match).",
+    "Uncertainty regarding defensive proficiency given offensive focus."
+  ],
+  "habits": [
+    "Initiates matches with early proactive plays.",
+    "Favors applying pressure in the opponent's half.",
+    "Tends to focus offensive pushes down a single lane.",
+    "Frequently leaks elixir."
+  ],
+  "latest_match_observations": [
+    "Opened the match immediately with Knight at 0.0s.",
+    "Majority of plays (10/19) were made in the enemy's half.",
+    "Heavily favored the left lane for card placements (13 plays).",
+    "Used Fireball offensively on the opponent's tower."
+  ],
+  "coaching_focus": [
+    "Minimize average elixir leaked per game.",
+    "Develop dual-lane pressure strategies.",
+    "Improve defensive card placements and timing.",
+    "Evaluate optimal spell usage for value trades."
+  ],
+  "trust_notes": [
+    "API stats (win rates, trophies) are highly reliable.",
+    "Gameplay observations are based on a single match, limiting generalizability.",
+    "Video extraction confidence for individual events appears low (0.0), suggesting potential noise in specific event details.",
+    "Player is in Goblin Stadium, indicating early game experience."
+  ]
+}

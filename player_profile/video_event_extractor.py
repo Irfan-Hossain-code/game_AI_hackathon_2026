@@ -1,12 +1,14 @@
 import cv2
 import json
 import os
-from vision_ai_extractor import analyze_frame
+from vision_ai_extractor import analyze_frames_batch
 
 
 VIDEO_PATH = "gameplay1.mp4"
 FRAME_DIR = "frames"
 OUTPUT_PATH = "video_events.json"
+
+SECONDS_BETWEEN_FRAMES = 2
 
 
 def main():
@@ -18,13 +20,20 @@ def main():
         raise Exception(f"Could not open video: {VIDEO_PATH}")
 
     fps = cap.get(cv2.CAP_PROP_FPS)
-    frame_interval = int(fps * 5)  # analyze every 5 seconds
 
-    events = []
+    if fps <= 0:
+        raise Exception("Could not read video FPS")
+
+    frame_interval = int(fps * SECONDS_BETWEEN_FRAMES)
+
+    frame_items = []
     frame_count = 0
-    analyzed_count = 0
+    saved_count = 0
 
-    print("Processing video with vision AI...")
+    print("Extracting frames...")
+    print(f"Video: {VIDEO_PATH}")
+    print(f"FPS: {fps}")
+    print(f"Saving one frame every {SECONDS_BETWEEN_FRAMES} seconds")
 
     while True:
         ret, frame = cap.read()
@@ -34,34 +43,34 @@ def main():
 
         if frame_count % frame_interval == 0:
             timestamp = round(frame_count / fps, 2)
-            frame_path = f"{FRAME_DIR}/frame_{analyzed_count}_{timestamp}s.jpg"
+            frame_path = f"{FRAME_DIR}/frame_{saved_count}_{timestamp}s.jpg"
 
             cv2.imwrite(frame_path, frame)
 
-            print(f"Analyzing {frame_path} at {timestamp}s")
+            frame_items.append({
+                "timestamp": timestamp,
+                "path": frame_path
+            })
 
-            try:
-                event = analyze_frame(frame_path, timestamp)
+            print(f"Saved {frame_path}")
 
-                if event is not None:
-                    events.append(event)
-                    print("Detected:", event)
-                else:
-                    print("No event detected.")
-
-            except Exception as e:
-                print("AI analysis failed:", e)
-
-            analyzed_count += 1
+            saved_count += 1
 
         frame_count += 1
 
     cap.release()
 
+    print(f"\nSending {len(frame_items)} frames in ONE Gemini request...")
+
+    events = analyze_frames_batch(frame_items)
+
     with open(OUTPUT_PATH, "w") as f:
         json.dump(events, f, indent=2)
 
     print(f"\nSaved {len(events)} events to {OUTPUT_PATH}")
+
+    for event in events:
+        print(event)
 
 
 if __name__ == "__main__":

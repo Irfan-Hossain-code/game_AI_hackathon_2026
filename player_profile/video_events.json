@@ -1,0 +1,287 @@
+[
+  {
+    "timestamp": 0.0,
+    "actor": "player",
+    "action": "played Knight on left lane in own half",
+    "card": "Knight",
+    "location": {
+      "lane": "left",
+      "side": "own_half"
+    },
+    "context": "card_play",
+    "elixir_amount": 3,
+    "confidence": 0.0,
+    "source": "gemini_api_key_batch",
+    "evidence": "Knight card being played from player's hand on left lane"
+  },
+  {
+    "timestamp": 2.0,
+    "actor": "opponent",
+    "action": "played Barbarian on left lane in enemy half",
+    "card": "Barbarian",
+    "location": {
+      "lane": "left",
+      "side": "enemy_half"
+    },
+    "context": "card_play",
+    "elixir_amount": null,
+    "confidence": 0.0,
+    "source": "gemini_api_key_batch",
+    "evidence": "New Barbarian troop visible on the left lane in opponent's half"
+  },
+  {
+    "timestamp": 6.0,
+    "actor": "opponent",
+    "action": "played Giant on left lane in enemy half",
+    "card": "Giant",
+    "location": {
+      "lane": "left",
+      "side": "enemy_half"
+    },
+    "context": "card_play",
+    "elixir_amount": null,
+    "confidence": 0.0,
+    "source": "gemini_api_key_batch",
+    "evidence": "Giant card being played on left lane in opponent's half"
+  },
+  {
+    "timestamp": 8.0,
+    "actor": "player",
+    "action": "played Arrows on right lane in own half",
+    "card": "Arrows",
+    "location": {
+      "lane": "right",
+      "side": "own_half"
+    },
+    "context": "spell",
+    "elixir_amount": 3,
+    "confidence": 0.0,
+    "source": "gemini_api_key_batch",
+    "evidence": "Arrows spell being cast on the right lane"
+  },
+  {
+    "timestamp": 12.0,
+    "actor": "opponent",
+    "action": "played Musketeer on left lane in enemy half",
+    "card": "Musketeer",
+    "location": {
+      "lane": "left",
+      "side": "enemy_half"
+    },
+    "context": "card_play",
+    "elixir_amount": null,
+    "confidence": 0.0,
+    "source": "gemini_api_key_batch",
+    "evidence": "New Musketeer troop visible on the left lane in opponent's half"
+  },
+  {
+    "timestamp": 18.0,
+    "actor": "player",
+    "action": "played Archers on right lane in own half",
+    "card": "Archers",
+    "location": {
+      "lane": "right",
+      "side": "own_half"
+    },
+    "context": "card_play",
+    "elixir_amount": 0,
+    "confidence": 0.0,
+    "source": "gemini_api_key_batch",
+    "evidence": "New Archers troop visible on the right lane in player's half"
+  },
+  {
+    "timestamp": 24.0,
+    "actor": "player",
+    "action": "played Fireball on left lane in enemy half",
+    "card": "Fireball",
+    "location": {
+      "lane": "left",
+      "side": "enemy_half"
+    },
+    "context": "spell",
+    "elixir_amount": 4,
+    "confidence": 0.0,
+    "source": "gemini_api_key_batch",
+    "evidence": "Fireball spell visible hitting opponent's left tower"
+  },
+  {
+    "timestamp": 30.0,
+    "actor": "player",
+    "action": "played Musketeer on right lane in own half",
+    "card": "Musketeer",
+    "location": {
+      "lane": "right",
+      "side": "own_half"
+    },
+    "context": "card_play",
+    "elixir_amount": 4,
+    "confidence": 0.0,
+    "source": "gemini_api_key_batch",
+    "evidence": "Musketeer card being played from player's hand on right lane"
+  },
+  {
+    "timestamp": 34.0,
+    "actor": "opponent",
+    "action": "played Mini P.E.K.K.A. on left lane in enemy half",
+    "card": "Mini P.E.K.K.A.",
+    "location": {
+      "lane": "left",
+      "side": "enemy_half"
+    },
+    "context": "card_play",
+    "elixir_amount": null,
+    "confidence": 0.0,
+    "source": "gemini_api_key_batch",
+    "evidence": "Mini P.E.K.K.A. card being played on left lane in opponent's half"
+  },
+  {
+    "timestamp": 36.0,
+    "actor": "player",
+    "action": "played Fireball on left lane in own half",
+    "card": "Fireball",
+    "location": {
+      "lane": "left",
+      "side": "own_half"
+    },
+    "context": "spell",
+    "elixir_amount": 4,
+    "confidence": 0.0,
+    "source": "gemini_api_key_batch",
+    "evidence": "Fireball spell being cast on the left lane"
+  },
+  {
+    "timestamp": 38.0,
+    "actor": "opponent",
+    "action": "played Fireball on right lane in enemy half",
+    "card": "Fireball",
+    "location": {
+      "lane": "right",
+      "side": "enemy_half"
+    },
+    "context": "spell",
+    "elixir_amount": null,
+    "confidence": 0.0,
+    "source": "gemini_api_key_batch",
+    "evidence": "Fireball spell being cast on the right lane"
+  },
+  {
+    "timestamp": 46.0,
+    "actor": "player",
+    "action": "played Musketeer on left lane in own half",
+    "card": "Musketeer",
+    "location": {
+      "lane": "left",
+      "side": "own_half"
+    },
+    "context": "card_play",
+    "elixir_amount": 4,
+    "confidence": 0.0,
+    "source": "gemini_api_key_batch",
+    "evidence": "Musketeer card being played from player's hand on left lane"
+  },
+  {
+    "timestamp": 52.0,
+    "actor": "opponent",
+    "action": "played Giant on right lane in enemy half",
+    "card": "Giant",
+    "location": {
+      "lane": "right",
+      "side": "enemy_half"
+    },
+    "context": "card_play",
+    "elixir_amount": null,
+    "confidence": 0.0,
+    "source": "gemini_api_key_batch",
+    "evidence": "New Giant troop visible on the right lane in opponent's half"
+  },
+  {
+    "timestamp": 64.0,
+    "actor": "player",
+    "action": "played Archers on left lane in own half",
+    "card": "Archers",
+    "location": {
+      "lane": "left",
+      "side": "own_half"
+    },
+    "context": "card_play",
+    "elixir_amount": 0,
+    "confidence": 0.0,
+    "source": "gemini_api_key_batch",
+    "evidence": "New Archers troop visible on the left lane in player's half"
+  },
+  {
+    "timestamp": 66.0,
+    "actor": "opponent",
+    "action": "played Giant on right lane in enemy half",
+    "card": "Giant",
+    "location": {
+      "lane": "right",
+      "side": "enemy_half"
+    },
+    "context": "card_play",
+    "elixir_amount": null,
+    "confidence": 0.0,
+    "source": "gemini_api_key_batch",
+    "evidence": "Giant card being played on right lane in opponent's half"
+  },
+  {
+    "timestamp": 68.0,
+    "actor": "player",
+    "action": "played Knight on left lane in own half",
+    "card": "Knight",
+    "location": {
+      "lane": "left",
+      "side": "own_half"
+    },
+    "context": "card_play",
+    "elixir_amount": 3,
+    "confidence": 0.0,
+    "source": "gemini_api_key_batch",
+    "evidence": "Knight card being played from player's hand on left lane"
+  },
+  {
+    "timestamp": 70.0,
+    "actor": "opponent",
+    "action": "played Mini P.E.K.K.A. on left lane in enemy half",
+    "card": "Mini P.E.K.K.A.",
+    "location": {
+      "lane": "left",
+      "side": "enemy_half"
+    },
+    "context": "card_play",
+    "elixir_amount": null,
+    "confidence": 0.0,
+    "source": "gemini_api_key_batch",
+    "evidence": "New Mini P.E.K.K.A. troop visible on the left lane in opponent's half"
+  },
+  {
+    "timestamp": 74.0,
+    "actor": "player",
+    "action": "played Minions on left lane in own half",
+    "card": "Minions",
+    "location": {
+      "lane": "left",
+      "side": "own_half"
+    },
+    "context": "card_play",
+    "elixir_amount": 0,
+    "confidence": 0.0,
+    "source": "gemini_api_key_batch",
+    "evidence": "New Minions troop visible on the left lane in player's half"
+  },
+  {
+    "timestamp": 76.0,
+    "actor": "opponent",
+    "action": "played Arrows on left lane in enemy half",
+    "card": "Arrows",
+    "location": {
+      "lane": "left",
+      "side": "enemy_half"
+    },
+    "context": "spell",
+    "elixir_amount": null,
+    "confidence": 0.0,
+    "source": "gemini_api_key_batch",
+    "evidence": "Arrows spell being cast on the left lane"
+  }
+]
